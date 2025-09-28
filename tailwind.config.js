@@ -14,7 +14,14 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                dm: ['DM Sans', ...defaultTheme.fontFamily.sans]
             },
+            colors: {
+              'primary': '#0A64EE',
+              'primary-hovered': '#045BDF',
+              'secondary': '#EBF8FF',
+              'accent': '#A2A2A2',
+            }
         },
     },
 
