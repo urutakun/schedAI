@@ -27,7 +27,7 @@ const FormInput = ({ id, type, placeholder, value, onChange, className, disabled
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`${className ?? ""} px-2 md:px-3 py-3 md:py-4 w-full rounded-xl border-none bg-secondary focus:outline-none focus:ring-2 focus:ring-primary text-sm md:text-base`}
+        className={`${className ?? ""} px-2 md:px-3 py-3 md:py-4 w-full rounded-xl border-none bg-custom-primary focus:outline-none focus:ring-2 focus:ring-custom-secondary text-sm md:text-base`}
         disabled={disabled}
       />
 
