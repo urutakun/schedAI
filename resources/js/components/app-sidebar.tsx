@@ -90,7 +90,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarHeader>
                 <SidebarMenuButton size="lg" className="flex items-center">
                     <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-custom-secondary text-sidebar-primary-foreground">
-                        <Logo width={20} height={20} color={'white'} />
+                        <Logo width={20} height={20} color={'white'} isVisible={false} />
                     </div>
                     <div className="grid flex-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">SchedAI</span>

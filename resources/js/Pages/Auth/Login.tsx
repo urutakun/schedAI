@@ -1,8 +1,9 @@
 import React from "react";
 import FormInputField from "../Components/FormInputField";
-import FormInput from "../Components/FormInput";
 import FormLabel from "../Components/FormLabel";
+import GlassFormInput from "../Components/GlassFormInput";
 import FormSubmitButton from "../Components/FormSubmitButton";
+import Logo from "../Components/Logo";
 import { useForm, Link, Head } from "@inertiajs/react";
 
 const Login = () => {
@@ -20,76 +21,35 @@ const Login = () => {
     };
 
     return (
-        <div className="w-screen h-screen grid grid-cols-2 gap-x-8 font-dm font-regular text-black text-sm md:text-base">
-            <Head title="Login" />
-            <div className="col-span-2 lg:col-span-1 w-full h-full lg:py-[3rem] px-[4rem] lg:px-[16rem] flex flex-col justify-center space-y-16">
-                <div className="header space-y-3">
-                    <h1 className="text-5xl font-bold tracking-tighter">
-                        Sign In
-                    </h1>
-                    <p className="text-accent">Enter your email and password</p>
+        <div className="w-screen h-screen cbg  font-dm text-black text-sm md:text-base space-y-6 flex flex-col items-center justify-center p-4">
+          <div className="header">
+            <Logo color={'white'} height={30} width={30}  isVisible={true} size={'text-xl lg:text-2xl'} textColor={'text-white'}/>
+          </div>
+          <div className="form-wrapper w-full lg:w-[600px] h-[480px] lg:h-[600px] relative bg-[linear-gradient(to_bottom,rgba(200,200,200,0.2),rgba(200,200,200,0.4))] backdrop-blur-[20px] border border-white/10 before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:border before:border-white/20 before:pointer-events-none px-4 py-3 lg:px-6 lg:py-6 rounded-3xl text-white tracking-tight font-bold flex flex-col items-center justify-center space-y-12 lg:space-y-16">
+            <div className="form-header text-center space-y-2 w-full">
+              <h1 className="text-2xl lg:text-4xl tracking-tighter">Welcome Back</h1>
+              <p className="font-light text-base lg:text-lg">Enter your email and password</p>
+            </div>
+            <form action="#" className="w-full">
+              <FormInputField>
+                <FormLabel htmlFor={'email'} textLabel={'Email'}/>
+                <GlassFormInput id={'email'} type={'text'} placeholder={'johndoe@example.com'} value={data.email} onChange={(e) => setData('email', e.target.value)} error={errors.email} className="w-full"/>
+              </FormInputField>
+              <FormInputField>
+                <div className="passwd flex justify-between items-center">
+                  <FormLabel htmlFor={'password'} textLabel={'Password'}/>
+                  <Link href={'/auth/forgot'} className="font-light hover:underline ctransition">Forgot Password?</Link>
                 </div>
-                <form action="#">
-                    <FormInputField>
-                        <FormLabel htmlFor={"email"} textLabel={"Email"} />
-                        <FormInput
-                            id={"email"}
-                            type={"text"}
-                            placeholder={"johndoe@example.com"}
-                            value={data.email}
-                            onChange={(e) => setData("email", e.target.value)}
-                            error={errors.email}
-                        ></FormInput>
-                    </FormInputField>
-                    <FormInputField>
-                        <div className="password-label-container flex justify-between">
-                            <FormLabel
-                                htmlFor={"password"}
-                                textLabel={"Password"}
-                            />
-                            <Link
-                                href="/password/reset"
-                                className="ctransition hover:underline cursor-pointer"
-                            >
-                                Forgot Password?
-                            </Link>
-                        </div>
-                        <FormInput
-                            id={"password"}
-                            type={"password"}
-                            placeholder={"Enter your password"}
-                            value={data.password}
-                            onChange={(e) =>
-                                setData("password", e.target.value)
-                            }
-                            error={errors.password}
-                        ></FormInput>
-                    </FormInputField>
-                    <FormInputField>
-                        <FormSubmitButton
-                            submit={"Log in"}
-                            onClick={handleLogin}
-                            className={"mt-4"}
-                        />
-                    </FormInputField>
-                    <div className="mt-4 text-cblue flex space-x-1 text-sm">
-                        <span>Not registered yet? </span>
-                        <Link
-                            href="/auth/register"
-                            className="font-bold ctransition hover:underline cursor-pointer"
-                        >
-                            Create an account
-                        </Link>
-                    </div>
-                </form>
-            </div>
-            <div className="hidden lg:block col-2 w-full h-full overflow-hidden rounded-bl-[20rem]">
-                <img
-                    src="/assets/images/shesh.jpg"
-                    alt="login_img"
-                    className="w-full h-full object-cover"
-                />
-            </div>
+                <GlassFormInput id={'password'} type={'password'} value={data.password} onChange={(e) => setData('password', e.target.value)} error={errors.password} className="w-full"/>
+              </FormInputField>
+              <FormInputField className="space-y-4 text-center">
+                <FormSubmitButton submit={'Log in'} onClick={handleLogin}/>
+                <span className="block font-light">
+                  Don't have an account yet? <Link href={'/auth/register'} className="underline">Register</Link>
+                </span>
+              </FormInputField>
+            </form>
+          </div>
         </div>
     );
 };

@@ -8,7 +8,7 @@ interface FormLabelProps {
 
 const FormLabel = ({ htmlFor, textLabel, className } : FormLabelProps) => {
   return (
-    <label htmlFor={htmlFor} className={`${className ?? ""} block mb-3`}>
+    <label htmlFor={htmlFor} className={`${className ?? ""} block mb-3 font-light`}>
       {textLabel}
     </label>
   )

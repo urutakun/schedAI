@@ -7,7 +7,7 @@ interface FormInputFieldProps {
 
 const FormInputField = ({ children, className }: FormInputFieldProps) => {
   return (
-    <div className={`mb-4 md:mb-6 ${className ?? ""}`}>
+    <div className={`mb-4 md:mb-6 ${className}`}>
       {children}
     </div>
   )

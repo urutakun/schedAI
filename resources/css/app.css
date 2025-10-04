@@ -6,6 +6,21 @@
   .ctransition {
     @apply ease-in-out duration-200;
   }
+
+  .gradient-background {
+    background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255, 0.3),
+      rgba(0,0,0,0.2)
+      );
+  }
+
+  .cbg {
+    background-image: url('/assets/images/shesh.png');
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+  }
 }
 
 
