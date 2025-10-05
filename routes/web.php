@@ -6,8 +6,15 @@ use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// HOME
+
 Route::get('/', function () {
     return Inertia::render('Landing');
+});
+
+// ABOUT
+Route::get('/about', function () {
+    return Inertia::render('About');
 });
 
 // REGISTER

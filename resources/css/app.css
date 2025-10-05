@@ -7,6 +7,10 @@
     @apply ease-in-out duration-200;
   }
 
+  .cimg_transition {
+    @apply ease-in-out duration-300;
+  }
+
   .gradient-background {
     background-image: linear-gradient(
       120deg,

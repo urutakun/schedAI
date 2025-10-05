@@ -14,7 +14,7 @@ export default function Landing() {
 
     return (
       <div className="cbg">
-        <div className="wrapper z-30 relative bg-grid h-screen w-screen font-dm p-6 lg:px-[15rem] lg:py-[2rem] flex flex-col overflow-hidden">
+        <div className="wrapper relative h-screen w-screen font-dm p-6 lg:px-[15rem] lg:py-[2rem] flex flex-col overflow-hidden">
           <motion.nav
             variants={fadeInVariant}
             initial="initial"

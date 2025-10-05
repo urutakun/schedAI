@@ -54,7 +54,7 @@ const Register = () => {
               </FormInputField>
               <FormInputField>
                 <FormLabel htmlFor={'password_confirmation'} textLabel={'Confirm Password'}/>
-                <GlassFormInput id={'password'} type={'password'} value={data.password} onChange={(e) => setData('password', e.target.value)} error={errors.password} className="w-full"/>
+                <GlassFormInput id={'password_confirmation'} type={'password'} value={data.password_confirmation} onChange={(e) => setData('password_confirmation', e.target.value)} error={errors.password} className="w-full"/>
               </FormInputField>
               <FormInputField className="space-y-4 text-center">
                 <FormSubmitButton submit={'Register'} onClick={handleRegister}/>
