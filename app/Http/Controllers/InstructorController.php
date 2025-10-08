@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,6 +13,7 @@ class InstructorController extends Controller
     }
 
     public function create(){
-      return Inertia::render('Admin/InstructorForm');
+      $departments = Department::all();
+      return Inertia::render('Admin/InstructorForm', ['departments' => $departments]);
     }
 }

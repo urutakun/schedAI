@@ -96,13 +96,31 @@ const data = {
         },
         {
             title: "Rooms",
-            url: "/admin/rooms",
             icon: DoorOpen,
+            items: [
+              {
+                title: "Room List",
+                url: "/admin/rooms"
+              },
+              {
+                title: "Create",
+                url: "/admin/rooms/create"
+              }
+            ]
         },
         {
             title: "Events",
-            url: "/admin/events",
             icon: Calendar1,
+            items: [
+              {
+                title: "Event List",
+                url: "/admin/events"
+              },
+              {
+                title: "Create",
+                url: "/admin/events/create"
+              }
+            ]
         },
     ],
 };

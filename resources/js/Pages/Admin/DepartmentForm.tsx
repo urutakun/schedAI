@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { toast } from "sonner"
 
-const CreateDepartment = () => {
+const DepartmentForm = () => {
   const { data, setData, errors, post, reset } = useForm({
     code: '',
     name: '',
@@ -43,6 +43,7 @@ const CreateDepartment = () => {
       <form onSubmit={handleFormSubmit} className='w-full lg:w-[500px] font-dm lg:border border-custom-accent/50 lg:p-4 rounded-2xl'>
         <FieldGroup>
           <FieldSet>
+            <FieldLegend>Create Department</FieldLegend>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="code">Code</FieldLabel>
@@ -75,5 +76,5 @@ const CreateDepartment = () => {
   )
 }
 
-CreateDepartment.layout = (page:React.ReactNode) => <Layout title="Create Department">{page}</Layout>
-export default CreateDepartment
+DepartmentForm.layout = (page:React.ReactNode) => <Layout title="Departments">{page}</Layout>
+export default DepartmentForm

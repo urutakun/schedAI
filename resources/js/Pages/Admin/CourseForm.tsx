@@ -24,11 +24,11 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Department as DepartmentType } from '../Interfaces/Department'
 
-interface CreateDepartmentProps{
+interface CourseFormProps{
   departments: DepartmentType[];
 }
 
-const CreateDepartment = ({ departments }: CreateDepartmentProps) => {
+const CourseForm = ({ departments }: CourseFormProps) => {
   const [departmentList, setDepartmentList] = useState<DepartmentType[]>(departments);
   const { data, setData, errors, post } = useForm({
     dept_id: '',
@@ -40,10 +40,11 @@ const CreateDepartment = ({ departments }: CreateDepartmentProps) => {
       <form action="" className='w-full lg:w-[500px] font-dm lg:border border-custom-accent/50 lg:p-4 rounded-2xl'>
         <FieldGroup>
           <FieldSet>
+            <FieldLegend>Create Course</FieldLegend>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="department">Department</FieldLabel>
-                <Select value={data.department} onValueChange={(value) => setData('department', value)}>
+                <Select value={data.dept_id} onValueChange={(value) => setData('dept_id', value)}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select Department" />
                   </SelectTrigger>
@@ -57,7 +58,7 @@ const CreateDepartment = ({ departments }: CreateDepartmentProps) => {
                     }
                   </SelectContent>
                 </Select>
-                <FieldError>{errors.department ?? ""}</FieldError>
+                <FieldError>{errors.dept_id ?? ""}</FieldError>
               </Field>
               <Field>
                 <FieldLabel htmlFor="code">Course Code</FieldLabel>
@@ -73,7 +74,7 @@ const CreateDepartment = ({ departments }: CreateDepartmentProps) => {
           </FieldSet>
           <Field orientation="horizontal">
           <Button type="submit">Submit</Button>
-          <Link href={'/admin/instructors'}>
+          <Link href={'/admin/courses'}>
             <Button variant="outline" type="button">
               Cancel
             </Button>
@@ -85,5 +86,5 @@ const CreateDepartment = ({ departments }: CreateDepartmentProps) => {
   )
 }
 
-CreateDepartment.layout = (page:React.ReactNode) => <Layout title="Create Course">{page}</Layout>
-export default CreateDepartment
+CourseForm.layout = (page:React.ReactNode) => <Layout title="Courses">{page}</Layout>
+export default CourseForm

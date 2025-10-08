@@ -17,5 +17,5 @@ const Course = ({ courses }: DepartmentProps) => {
   )
 }
 
-Course.layout = (page: React.ReactNode) => <Layout title={'Courses'}>{page}</Layout>
+Course.layout = (page: React.ReactNode) => <Layout title="Courses"}>{page}</Layout>
 export default Course

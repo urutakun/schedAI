@@ -1,5 +1,5 @@
 import Layout from '@/Layouts/Layout'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm, Link } from '@inertiajs/react'
 import {
   Field,
@@ -22,10 +22,16 @@ import {
 } from "@/components/ui/select"
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import type { Department as DepartmentType } from '../Interfaces/Department'
 
-const CreateDepartment = () => {
+interface InstructorFormProps{
+  departments: DepartmentType[];
+}
+
+const InstructorForm = ({ departments }: InstructorFormProps) => {
+  const [departmentList, setDepartmentList] = useState<DepartmentType[]>(departments);
   const { data, setData, errors, post } = useForm({
-    department: '',
+    dept_id: '',
     first_name: '',
     last_name: '',
     position: '',
@@ -38,22 +44,25 @@ const CreateDepartment = () => {
       <form action="" className='w-full lg:w-[500px] font-dm lg:border border-custom-accent/50 lg:p-4 rounded-2xl'>
         <FieldGroup>
           <FieldSet>
+            <FieldLegend>Add Instructor</FieldLegend>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="department">Department</FieldLabel>
-                <Select value={data.department} onValueChange={(value) => setData('department', value)}>
+                <Select value={data.dept_id} onValueChange={(value) => setData('dept_id', value)}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select Department" />
                   </SelectTrigger>
                   <SelectContent>
-                      {/* PASS DEPARTMENT PROPS */}
-                    <SelectItem value="test">College of Computer Education</SelectItem>
-                    <SelectItem value="test">College of Teacher Education</SelectItem>
-                    <SelectItem value="test">College of Criminal Justice Education</SelectItem>
-                    <SelectItem value="test">College of Business Education</SelectItem>
+                    {
+                      departmentList.map((department: DepartmentType, index: number) => {
+                        return(
+                          <SelectItem value={department.dept_id} key={index} className='capitalize'>{department.name}</SelectItem>
+                        )
+                      })
+                    }
                   </SelectContent>
                 </Select>
-                <FieldError>{errors.department ?? ""}</FieldError>
+                <FieldError>{errors.dept_id ?? ""}</FieldError>
               </Field>
               <Field>
                 <FieldLabel htmlFor="first_name">First Name</FieldLabel>
@@ -101,5 +110,5 @@ const CreateDepartment = () => {
   )
 }
 
-CreateDepartment.layout = (page:React.ReactNode) => <Layout title="Create Department">{page}</Layout>
-export default CreateDepartment
+InstructorForm.layout = (page:React.ReactNode) => <Layout title="Instructors">{page}</Layout>
+export default InstructorForm
