@@ -71,7 +71,7 @@ const RoomForm = () => {
                                 </FieldError>
                             </Field>
                             <Field>
-                                <FieldLabel htmlFor="department">
+                                <FieldLabel>
                                     Type
                                 </FieldLabel>
                                 <Select

@@ -46,6 +46,7 @@ export const RoomColumns: ColumnDef<Room>[] = [
         </div>
       )
     },
+    cell: ({row}) => (<div className="capitalize">{row.original.room_type}</div>)
   },
   {
     id: "actions",

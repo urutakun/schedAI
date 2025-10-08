@@ -17,7 +17,7 @@ const Course = ({ courses }: DepartmentProps) => {
                 data={courseList || []}
                 filterLabel={"name"}
                 filterColumn={"name"}
-                createUrl={"/admin/departments/create"}
+                createUrl={"/admin/courses/create"}
             />
         </div>
     );

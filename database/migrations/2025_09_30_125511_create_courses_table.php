@@ -20,7 +20,7 @@ return new class extends Migration
                 ->on('departments')
                 ->onDelete('cascade');
 
-            $table->string('crs_code');
+            $table->string('crs_code', 20);
             $table->string('crs_name');
             $table->timestamps();
         });

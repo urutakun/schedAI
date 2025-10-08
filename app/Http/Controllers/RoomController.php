@@ -9,7 +9,8 @@ use Inertia\Inertia;
 class RoomController extends Controller
 {
     public function index(){
-      return Inertia::render('Admin/Room');
+      $rooms = Room::all();
+      return Inertia::render('Admin/Room', ['rooms' => $rooms]);
     }
 
     public function create(){
@@ -18,8 +19,8 @@ class RoomController extends Controller
 
     public function store(Request $request){
       $validated = $request->validate([
-        'room_code' => 'required|string|max:50|unique:rooms,room_code',
-        'capacity'  => 'required|integer',
+        'room_name' => 'required|string',
+        'room_type' => 'required|string|in:laboratory,classroom',
       ]);
 
       $room = Room::create($validated);
