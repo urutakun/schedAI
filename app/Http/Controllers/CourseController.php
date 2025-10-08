@@ -18,4 +18,23 @@ class CourseController extends Controller
       $departments = Department::all();
       return Inertia::render('Admin/CourseForm', ['departments' => $departments]);
     }
+
+    public function store(Request $request){
+      $validated = $request->validate([
+        'dept_id'   => 'required|string',
+        'crs_code'  => 'required|string',
+        'crs_name'  => 'required|string',
+      ]);
+
+      $course = Course::create($validated);
+
+      if(!$course){
+        return redirect()->back()->with([
+          'message' => 'Failed to create course'
+        ]);
+      }
+
+      return redirect()->route('courses.index')->with('message', 'courses created successfully');
+    }
+
 }

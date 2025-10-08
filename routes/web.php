@@ -38,13 +38,19 @@ Route::prefix('auth')->group(function(){
 Route::prefix('admin')->group(function(){
   Route::get('/dashboard', [AdminController::class, 'index']);
   Route::get('/dashboard/test', [AdminController::class, 'create']);
+
   Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
   Route::get('/departments/create', [DepartmentController::class, 'create']);
   Route::post('/departments/create', [DepartmentController::class, 'store']);
+
   Route::get('/instructors', [InstructorController::class, 'index'])->name('instructors.index');;
   Route::get('/instructors/create', [InstructorController::class, 'create']);
+
   Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');;
   Route::get('/courses/create', [CourseController::class, 'create']);
+  Route::post('/courses/create', [CourseController::class, 'store']);
+
   Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');;
   Route::get('/rooms/create', [RoomController::class, 'create']);
+  Route::post('/rooms/create', [RoomController::class, 'store']);
 });

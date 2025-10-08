@@ -1,9 +1,9 @@
 <?php
 
 namespace Database\Seeders;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,15 +18,18 @@ class DatabaseSeeder extends Seeder
         User::insert(
           [
             [
-              'name' => 'Test User',
-              'email' => 'test@example.com',
-              'password' => 'test@123'
+              'id' => 'admin002',
+              'first_name' => 'Test',
+              'last_name' => 'User',
+              'role' => 'admin',
+              'email' =>  'test1@example.com',
+              'password' => Hash::make('test@123')
             ],
-            [
-              'name' => 'Batman Boi',
-              'email' => 'batman@gotham.com',
-              'password' => 'batman@123'
-            ]
+            // [
+            //   'name' => 'Batman Boi',
+            //   'email' => 'batman@gotham.com',
+            //   'password' => 'batman@123'
+            // ]
           ]
       );
     }
