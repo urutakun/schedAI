@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('class_sections', function (Blueprint $table) {
-            $table->string('sect_id')->primary();
+            $table->string('sect_id', 20)->primary();
 
             $table->string('crs_id');
             $table->foreign('crs_id')

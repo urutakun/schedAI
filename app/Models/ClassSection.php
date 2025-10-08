@@ -31,19 +31,11 @@ class ClassSection extends Model
 
     private static function generateUniqueId()
     {
-        // Get the latest sect_id (ordered descending)
-        $lastId = self::orderBy('sect_id', 'desc')->value('sect_id');
+        do {
+            $uniqueId = 'SECT-' . mt_rand(000000, 999999);
+        } while (self::where('sect_id', $uniqueId)->exists());
 
-        if ($lastId) {
-            // Extract the numeric part (e.g. "SECTION-101" → 101)
-            $lastNumber = (int) str_replace('SECTION-', '', $lastId);
-            $newNumber = $lastNumber + 1;
-        } else {
-            // First department → start at 101
-            $newNumber = 101;
-        }
-
-        return 'SECTION-' . $newNumber;
+        return $uniqueId;
     }
 
 }

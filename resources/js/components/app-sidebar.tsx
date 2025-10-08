@@ -22,7 +22,7 @@ import Logo from "@/Pages/Components/Logo";
 
 const data = {
     user: {
-        name: "Walter Gagate",
+        name: "John Doe",
         role: "Admin",
         avatar: "/avatars/shadcn.jpg",
     },
@@ -54,22 +54,49 @@ const data = {
         },
         {
             title: "Departments",
-            url: "/admin/departments",
             icon: Building,
+            items: [
+              {
+                title: "Department List",
+                url: "/admin/departments"
+              },
+              {
+                title: "Create",
+                url: "/admin/departments/create"
+              }
+            ]
         },
         {
-            title: "Teachers",
-            url: "/admin/teachers",
+            title: "Instructors",
             icon: Users,
+            items: [
+              {
+                title: "Instructor List",
+                url: "/admin/instructors"
+              },
+              {
+                title: "Create",
+                url: "/admin/instructors/create"
+              }
+            ]
         },
         {
             title: "Courses",
-            url: "/admin/courses",
             icon: Book,
+            items: [
+              {
+                title: "Course List",
+                url: "/admin/courses"
+              },
+              {
+                title: "Create",
+                url: "/admin/courses/create"
+              }
+            ]
         },
         {
             title: "Rooms",
-            url: "/admin/courses",
+            url: "/admin/rooms",
             icon: DoorOpen,
         },
         {

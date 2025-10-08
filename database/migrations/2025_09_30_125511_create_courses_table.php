@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->string('crs_id')->primary();
+            $table->string('crs_id', 20)->primary();
 
             $table->string('dept_id');
             $table->foreign('dept_id')
@@ -20,6 +20,7 @@ return new class extends Migration
                 ->on('departments')
                 ->onDelete('cascade');
 
+            $table->string('crs_code');
             $table->string('crs_name');
             $table->timestamps();
         });

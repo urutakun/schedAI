@@ -4,7 +4,14 @@ import { usePage } from '@inertiajs/react'
 const breadcrumbMap:Record<string, string> = {
   'dashboard': 'Dashboard',
   'user': 'Users',
-  'test': 'Test'
+  'test': 'Test',
+  'departments': 'Departments',
+  'instructors': 'Instructors',
+  'courses': 'Courses',
+  'rooms': 'Rooms',
+  'events': 'Events',
+  'create': 'Create',
+  'edit': 'Edit'
 }
 
 

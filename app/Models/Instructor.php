@@ -31,19 +31,10 @@ class Instructor extends Model
 
     private static function generateUniqueId()
     {
-        // Get last numeric part after 'INS-'
-        $lastId = self::select('instr_id')
-            ->orderByRaw("CAST(SUBSTRING(instr_id, 5) AS UNSIGNED) DESC")
-            ->value('instr_id');
+        do {
+            $uniqueId = 'INST-' . mt_rand(000000, 999999);
+        } while (self::where('instr_id', $uniqueId)->exists());
 
-        if ($lastId) {
-            $lastNumber = (int) str_replace('INS-', '', $lastId);
-            $newNumber = $lastNumber + 1;
-        } else {
-            $newNumber = 101; // start point
-        }
-
-        return 'INS-' . $newNumber;
+        return $uniqueId;
     }
-
 }

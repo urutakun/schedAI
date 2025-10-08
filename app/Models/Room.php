@@ -33,7 +33,7 @@ class Room extends Model
     private static function generateUniqueId()
     {
         do {
-            $uniqueId = 'RM-' . mt_rand(100, 999);
+            $uniqueId = 'RM-' . mt_rand(000000, 999999);
         } while (self::where('room_id', $uniqueId)->exists());
 
         return $uniqueId;

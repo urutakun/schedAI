@@ -30,18 +30,10 @@ class Course extends Model
 
     private static function generateUniqueId()
     {
-        // Get the latest dept_id (ordered descending)
-        $lastId = self::orderBy('crs_id', 'desc')->value('crs_id');
+        do {
+            $uniqueId = 'CRS-' . mt_rand(000000, 999999);
+        } while (self::where('crs_id', $uniqueId)->exists());
 
-        if ($lastId) {
-            // Extract the numeric part (e.g. "COURSE-105" → 105)
-            $lastNumber = (int) str_replace('COURSE-', '', $lastId);
-            $newNumber = $lastNumber + 1;
-        } else {
-            // First department → start at 101
-            $newNumber = 101;
-        }
-
-        return 'COURSE-' . $newNumber;
+        return $uniqueId;
     }
 }

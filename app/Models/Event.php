@@ -33,7 +33,7 @@ class Event extends Model
     private static function generateUniqueId()
     {
         do {
-            $uniqueId = 'EVENT-' . mt_rand(1, 999);
+            $uniqueId = 'EVENT-' . mt_rand(000000, 999999);
         } while (self::where('event_id', $uniqueId)->exists());
 
         return $uniqueId;

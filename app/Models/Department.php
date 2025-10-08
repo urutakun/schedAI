@@ -12,7 +12,9 @@ class Department extends Model
 
     protected $fillable = [
         'dept_id',
-        'dept_name',
+        'code',
+        'name',
+        'head'
     ];
 
     public $incrementing = false;
@@ -29,18 +31,10 @@ class Department extends Model
 
     private static function generateUniqueId()
     {
-        // Get the latest dept_id (ordered descending)
-        $lastId = self::orderBy('dept_id', 'desc')->value('dept_id');
+        do {
+            $uniqueId = 'DEPT-' . mt_rand(000000, 999999);
+        } while (self::where('dept_id', $uniqueId)->exists());
 
-        if ($lastId) {
-            // Extract the numeric part (e.g. "DPT-101" → 101)
-            $lastNumber = (int) str_replace('DPT-', '', $lastId);
-            $newNumber = $lastNumber + 1;
-        } else {
-            // First department → start at 101
-            $newNumber = 101;
-        }
-
-        return 'DPT-' . $newNumber;
+        return $uniqueId;
     }
 }

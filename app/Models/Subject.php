@@ -34,7 +34,7 @@ class Subject extends Model
     private static function generateUniqueId()
     {
         do {
-            $uniqueId = 'SUB-' . mt_rand(100, 999);
+            $uniqueId = 'SUB-' . mt_rand(000000, 999999);
         } while (self::where('sub_id', $uniqueId)->exists());
 
         return $uniqueId;

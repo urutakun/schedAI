@@ -7,6 +7,7 @@
         <meta name="description" content="Class scheduling webapp">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="shortcut icon" href="/assets/images/fav-logo.svg" type="image/x-icon">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

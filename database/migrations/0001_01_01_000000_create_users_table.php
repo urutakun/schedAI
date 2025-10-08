@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('id', 20)->primary();
             $table->string('first_name');
             $table->string('last_name');
+            $table->enum('role', ['student', 'instructor', 'admin'])->default('student');
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
